@@ -3,15 +3,15 @@
 You can use this image as a base container to run systemd services inside.
 
 ## Supported tags
- - `20.04`
- - `18.04`, `latest`
+ - `20.04`, `latest`
+ - `18.04`
  - `16.04`
 
 ## Usage
 
 Run the container as a daemon
 
-`docker run -d --name systemd-ubuntu --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro jrei/systemd-ubuntu`
+`docker run -d --name systemd-ubuntu --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro protopopys/systemd-ubuntu`
 
 Enter to the container
 

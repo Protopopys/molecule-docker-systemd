@@ -1,13 +1,16 @@
-# This repository contains my Dockerfiles
+# Docker images for running systemd
 
-[![ISC](https://img.shields.io/badge/License-ISC-blue.svg?style=flat-square)](https://en.wikipedia.org/wiki/ISC_license)
+You can use this images as base containers to run systemd services inside.
 
-## Directory structure
+## Usage
 
-- [aports-dev](./aports-dev) contains an image for Alpine Linux aports development.
-- [crystal-alpine](./crystal-alpine) contains an image based on Alpine to compile statically linked Crystal applications.
-- [gh-pages-ci](.//gh-pages-ci) contains an image for uploading HTML sites to `gh-pages`.
-- [openrc](./openrc) and [systemd](./systemd) contain init-enabled docker images in which services are able to run.
+Run the container as a daemon
+
+`docker run -d --cap-add SYS_ADMIN -v /sys/fs/cgroup:/sys/fs/cgroup:ro protopopys/$IMAGE`
+
+Enter to the container
+
+`docker exec -it $CONTAINER_ID bash`
 
 ## License
 
