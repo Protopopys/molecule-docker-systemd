@@ -11,7 +11,7 @@ You can use this image as a base container to run systemd services inside.
 
 Run the container as a daemon
 
-`docker run -d --name systemd-ubuntu --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro protopopys/systemd-ubuntu`
+`docker run -d --name systemd-ubuntu --security-opt seccomp=unconfined --tmpfs /run --tmpfs /run/lock -v /sys/fs/cgroup:/sys/fs/cgroup:ro protopopys/systemd-ubuntu:$TAG`
 
 Enter to the container
 
@@ -20,3 +20,22 @@ Enter to the container
 Remove the container
 
 `docker rm -f systemd-ubuntu`
+
+For Ansible Molecule
+
+`
+platforms:
+  - name: Ubuntu$TAG
+    hostname: ubuntu_$TAG
+    image: protopopys/systemd-ubuntu:$TAG
+    override_command: False
+    tty: True
+    privileged: True
+    security_opts:
+      - seccomp=unconfigured
+    volumes:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+    tmpfs:
+      - /tmp
+      - /run/lock
+`
