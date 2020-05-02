@@ -15,4 +15,6 @@ RUN rm -f /lib/systemd/system/multi-user.target.wants/* \
 
 VOLUME [ "/sys/fs/cgroup" ]
 
+STOPSIGNAL SIGRTMIN+3
+
 CMD ["/usr/sbin/init"]
