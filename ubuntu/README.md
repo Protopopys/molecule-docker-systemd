@@ -23,7 +23,7 @@ Remove the container
 
 For Ansible Molecule
 
-`
+```yaml
 platforms:
   - name: Ubuntu$TAG
     hostname: ubuntu_$TAG
@@ -38,4 +38,4 @@ platforms:
     tmpfs:
       - /tmp
       - /run/lock
-`
+```
